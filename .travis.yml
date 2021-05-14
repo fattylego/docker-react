@@ -1,0 +1,9 @@
+sudo: required
+services: 
+- docker
+
+before_install:
+- docker build -t mhkhong/docker-react -f Dockerfile.dev .
+
+script:
+- docker run mhkhong/docker-react npm run test -- --coverage
