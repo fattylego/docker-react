@@ -6,7 +6,7 @@ before_install:
 - docker build -t mhkhong/docker-react -f Dockerfile.dev .
 
 script:
-- docker run mhkhong/docker-react npm run test -- --coverage
+- docker run -e CI=true mhkhong/docker-react npm run test -- --coverage
 
 deploy:
   provider: elasticbeanstalk
